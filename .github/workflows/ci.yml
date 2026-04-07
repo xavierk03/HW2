@@ -1,0 +1,35 @@
+name: Build and Push Docker Image
+
+# 트리거: 메인(master 또는 main) 브랜치에 코드가 push될 때만 실행
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          # 레포지토리 이름을 Docker Hub 유저네임 뒷부분 형식을 따라 작성합니다. (예: kwon1/face-recommender:latest)
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hairstyles-api:${{ github.sha }}, ${{ secrets.DOCKERHUB_USERNAME }}/hairstyles-api:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/hairstyles-api:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/hairstyles-api:buildcache,mode=max

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 헤어스타일 추천</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="glass-container">
+        <header>
+            <h1>✨ AI 뷰티 솔루션</h1>
+            <p>사진 하나로 나와 가장 잘 어울리는 헤어스타일을 찾아보세요.</p>
+        </header>
+        
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <span class="icon">📸</span>
+                <p>여기로 이미지를 드래그하거나<br>클릭하여 업로드하세요</p>
+                <input type="file" id="file-input" accept="image/*" hidden>
+            </div>
+            
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>AI가 얼굴형을 정밀 분석하고 있습니다...</p>
+            </div>
+            
+            <div id="result-card" class="result-card hidden">
+                <div class="result-header">
+                    <h2>분석 완료! 🎉</h2>
+                </div>
+                <div class="result-content">
+                    <div class="info-row">
+                        <span class="label">찾아낸 얼굴형</span>
+                        <span id="face-shape" class="value highlight">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">추천 헤어스타일</span>
+                        <span id="hair-style" class="value gradient-text">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">AI 신뢰도</span>
+                        <span id="confidence" class="value">-</span>
+                    </div>
+                </div>
+                <button id="reset-btn" class="primary-btn">새 사진 다시 분석하기</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
