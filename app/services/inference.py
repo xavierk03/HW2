@@ -17,11 +17,11 @@ def predict_face_shape_and_hairstyle(image_bytes: bytes) -> dict:
     length = len(image_bytes)
     shape = face_shapes[length % len(face_shapes)]
     
-    # 해당 얼굴형에 어울리는 헤어스타일 중 하나를 랜덤으로 추천
-    style = random.choice(hairstyles[shape])
+    # 해당 얼굴형에 어울리는 헤어스타일 중 3개를 무작위 추출하여 추천
+    styles = random.sample(hairstyles[shape], 3)
 
     return {
         "face_shape": shape,
-        "recommended_hairstyle": style,
+        "recommended_hairstyles": styles,
         "confidence": round(random.uniform(0.75, 0.99), 2)
     }

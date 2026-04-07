@@ -210,3 +210,42 @@ header p {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px -10px rgba(168, 85, 247, 0.6);
 }
+
+/* Ranking List */
+.align-top {
+    align-items: flex-start;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: right;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.rank-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    color: white;
+}
+
+.rank-1 {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+}
+
+.rank-2 {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+}
+
+.rank-3 {
+    background: linear-gradient(135deg, #b45309, #78350f);
+}

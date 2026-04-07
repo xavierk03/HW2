@@ -67,7 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Populating UI with inference result
             document.getElementById('face-shape').textContent = data.prediction.face_shape;
-            document.getElementById('hair-style').textContent = data.prediction.recommended_hairstyle;
+            
+            const styles = data.prediction.recommended_hairstyles;
+            if (styles && styles.length >= 3) {
+                document.getElementById('hair-style-1').textContent = styles[0];
+                document.getElementById('hair-style-2').textContent = styles[1];
+                document.getElementById('hair-style-3').textContent = styles[2];
+            }
+            
             document.getElementById('confidence').textContent = Math.round(data.prediction.confidence * 100) + '%';
         })
         .catch(error => {
