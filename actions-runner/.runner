@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "HW2",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus25.actions.githubusercontent.com/qRpc98fawCnukFVSjSBqqBKhikB6ZfZIUtrmy3vFANr8T85ADZ/",
+  "gitHubUrl": "https://github.com/xavierk03/HW2",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
